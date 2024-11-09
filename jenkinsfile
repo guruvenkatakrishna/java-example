@@ -34,7 +34,8 @@ pipeline {
 				echo 'Deploying into environment'
 				// Ensure the target directory exists on the remote server
 			        sh '''
-            				ssh ubuntu@172.31.9.248 "mkdir -p /home/ubuntu/tomcat/webapps"
+            				ssh ubuntu@13.201.187.70 "mkdir -p /home/ubuntu/tomcat/webapps"
+            		
        				 '''
 
 				sh '''
