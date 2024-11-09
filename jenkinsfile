@@ -4,7 +4,7 @@ pipeline {
 
 	environment{
 		TOMCAT_USER="ubuntu"
-		TOMCAT_HOST="172.31.9.248"
+		TOMCAT_HOST="13.201.187.70"
 		TOMCAT_PATH="/home/ubuntu/tomcat/webapps"
 	
 		  
@@ -38,7 +38,7 @@ pipeline {
        				 '''
 
 				sh '''
-					rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/webapp/target/*.war ubuntu@172.31.9.248:/home/ubuntu/tomcat/webapps
+					rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/webapp/target/*.war ubuntu@13.201.187.70:/home/ubuntu/tomcat/webapps
 				'''
 			}
 			
