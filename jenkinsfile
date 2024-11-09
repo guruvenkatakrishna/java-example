@@ -34,9 +34,7 @@ pipeline {
 				echo 'Deploying into environment'
 				
 
-				sh '''
-					sudo rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/target/*.war ubuntu@13.201.187.70:/home/ubuntu/tomcat/webapps
-				'''
+				sh 'sudo rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/target/*.war ubuntu@13.201.187.70:/home/ubuntu/tomcat/webapps'
 			}
 			
 		}
