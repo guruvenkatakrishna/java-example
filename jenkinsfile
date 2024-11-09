@@ -29,10 +29,12 @@ pipeline {
 		}
 		stage('Deploy') {
 			
-			agent {label 'master'}
+	
 			steps {
 				echo 'Deploying into environment'
-				sh'rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/webapp/target/*.war ubuntu@172.31.9.248/home/ubuntu/tomcat/webapps'
+				sh '''
+					rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/webapp/target/*.war ubuntu@172.31.9.248:/home/ubuntu/tomcat/webapps
+				'''
 			}
 			
 		}
