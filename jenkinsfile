@@ -32,11 +32,7 @@ pipeline {
 	
 			steps {
 				echo 'Deploying into environment'
-				// Ensure the target directory exists on the remote server
-			        sh '''
-            				ssh ubuntu@13.201.187.70 "mkdir -p /home/ubuntu/tomcat/webapps"
-            		
-       				 '''
+				
 
 				sh '''
 					rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/webapp/target/*.war ubuntu@13.201.187.70:/home/ubuntu/tomcat/webapps
