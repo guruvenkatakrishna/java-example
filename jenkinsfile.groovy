@@ -6,7 +6,7 @@ node('agent1') {
   
   stage('Checkout') {
     // Checkout source code from Git
-    checkout([$class: 'GitSCM',
+    checkout([$class: 'SCM',
               branches: [[name: '*/main']],  // Correct format for branch name
               userRemoteConfigs: [[
                 url: 'https://github.com/guruvenkatakrishna/java-example.git'
