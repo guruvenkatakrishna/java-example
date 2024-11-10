@@ -5,8 +5,7 @@ node('agent1') {
   def tomcatPath = '/home/ubuntu/tomcat/webapps/'
   stage('Checkout') {
 // Checkout source code from Git
-    checkout([
-             $ class: 'GITSCM',
+    checkout([$class: 'GitSCM',
                branch: [[name:'main']],
                 userRemoteConfigs:[[
                    url: 'https://github.com/guruvenkatakrishna/java-example.git'
