@@ -6,11 +6,12 @@ node('agent1') {
   stage('Checkout') {
 // Checkout source code from Git
     checkout([$class: 'GitSCM',
-               branch: [[name:'main']],
-                userRemoteConfigs:[[
-                   url: 'https://github.com/guruvenkatakrishna/java-example.git'
-              ]]
-      ])
+          branches: [[name: '*/main']],  
+          userRemoteConfigs: [[
+            url: 'https://github.com/guruvenkatakrishna/java-example.git'
+          ]]
+        ])
+
   }	
   stage('Build') {
    // Set Maven tool
