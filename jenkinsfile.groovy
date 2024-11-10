@@ -5,7 +5,11 @@ node('agent1') {
   def tomcatPath = '/home/ubuntu/tomcat/webapps/'
   stage('Checkout') {
 // Checkout source code from Git
-     git branch: 'main',  url: 'https://github.com/guruvenkatakrishna/java-example.git'
+    $class: 'GITSCM',
+      branch: [[name:'main']],
+      userRemoteConfigs:[[
+         url: 'https://github.com/guruvenkatakrishna/java-example.git'
+    ]]
   }	
   stage('Build') {
    // Set Maven tool
