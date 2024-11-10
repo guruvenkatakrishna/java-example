@@ -6,11 +6,9 @@ node('agent1') {
   
   stage('Checkout') {
     // Checkout source code from Git
-    checkout([$class: 'SCM',
+    checkout([$class: 'GitSCM',
               branches: [[name: '*/main']],  // Correct format for branch name
-              userRemoteConfigs: [[
-                url: 'https://github.com/guruvenkatakrishna/java-example.git'
-              ]]
+              userRemoteConfigs: [[url: 'https://github.com/guruvenkatakrishna/java-example.git' ]]
             ])
   }
 
@@ -27,6 +25,9 @@ node('agent1') {
 
   stage('Deploy') {
     // Copy the WAR file to the Tomcat webapps directory
-    sh "sudo cp ${WORKSPACE}/target/*.war ${tomcatPath}"
+    sh "sudo cp /home/ubuntu/jenkins/workspace/jenkinsfile.groovy/target/*.war ${tomcatPath}"
   }
 }
+
+
+
