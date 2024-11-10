@@ -5,7 +5,7 @@ node('agent1') {
   def tomcatPath = '/home/ubuntu/tomcat/webapps/'
   stage('Checkout') {
 // Checkout source code from Git
-     git branch: 'main',  url: 'https://github.com//HelloWorld.git'
+     git branch: 'main',  url: 'https://github.com/guruvenkatakrishna/java-example/blob/main/jenkinsfile.groovy'
   }	
   stage('Build') {
    // Set Maven tool
