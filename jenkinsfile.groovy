@@ -17,7 +17,7 @@ node('agent1') {
    }
    stage('Deploy') {
        
-      sh "sudo cp /home/ubuntu/jenkins/workspace/jenkins.groovy/target/*.war ${tomcatPath}"
+      sh "sudo cp /home/ubuntu/jenkins/workspace/jenkinsfile.groovy/target/*.war ${tomcatPath}"
    }
 }
 
