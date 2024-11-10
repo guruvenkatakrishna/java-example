@@ -1,19 +1,8 @@
 pipeline {
-	agent any
-
-
-	environment{
-		TOMCAT_USER="ubuntu"
-		TOMCAT_HOST="172.31.9.248"
-		TOMCAT_PATH="/home/ubuntu/tomcat/webapps"
-	
-		  
-                
-	}
+	agent {label'agent1'}
 	stages {
 		stage('Checkout') {
 			steps {
-				echo 'Checkout completed'
 				git branch: 'main', url: 'https://github.com/guruvenkatakrishna/java-example.git'
 			}
 		}
@@ -24,17 +13,13 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				sh 'mvn clean install'
+				sh 'mvn clean package'
 			}
 		}
 		stage('Deploy') {
-			
-			agent {label'agent1'}
 			steps {
-				echo 'Deploying into environment'
-				
-
-				sh 'sudo rsync -avz -e ssh /var/lib/jenkins/workspace/tomcat/target/*.war ubuntu@172.31.9.248:/home/ubuntu/tomcat/webapps'
+				sh 'sudo rsync -av /home/ubuntu/jenkins/workspace/tomcat/target/*.war /home/ubuntu/tomcat/webapps/'
+				echo'successfully deployed'
 			}
 			
 		}
