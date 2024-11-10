@@ -1,7 +1,7 @@
 node('agent1') {
   def mvnHome
   def tomcatUser = 'ubuntu'
-  def tomcatHost = '172.31.11.49'
+  def tomcatHost = '172.31.9.248'
   def tomcatPath = '/home/ubuntu/tomcat/webapps/'
   stage('Checkout') {
 // Checkout source code from Git
