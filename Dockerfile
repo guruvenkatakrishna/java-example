@@ -15,5 +15,5 @@ RUN git clone https://github.com/guruvenkatakrishna/java-example.git .
 RUN mvn clean package
 
 
-CMD ["echo", "my owm custom image"]
-~
+CMD ["bin/bash"]
+
